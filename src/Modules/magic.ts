@@ -230,7 +230,8 @@ export class MagicModule extends BaseModule {
     }
 
     CanUseMagic(target: Character) {
-        let item = InventoryGet(Player, "ItemHandheld");
+        //let item = InventoryGet(Player, "ItemHandheld");
+	let item = InventoryGet(Player, Player.FocusGroup?.Name);
         let isWieldingMagicItem = !!item && this.IsMagicItem(item);
         let hasItemPermission = ServerChatRoomGetAllowItem(Player, target);
         let targetHasMagicEnabled = (target as OtherCharacter).LSCG?.MagicModule?.enabled;
